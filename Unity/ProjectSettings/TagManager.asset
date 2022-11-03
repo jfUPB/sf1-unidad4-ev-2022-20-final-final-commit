@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Background
+  - Ground
+  - Enemy
+  - DeathZone
+  - CanvasWin
+  - Spear
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - BackGround
+  - Water
+  - UI
+  - Main
+  - 
+  - Ground
+  - Enemy
+  - Intangible
+  - Screen
+  - BossProjectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background_Layer
+    uniqueID: 3307140245
+    locked: 0
+  - name: Ground_layer
+    uniqueID: 3325845279
+    locked: 0
+  - name: Player_layer
+    uniqueID: 1386403785
+    locked: 0

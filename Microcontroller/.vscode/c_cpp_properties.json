@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "name": "windows-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "C:\\Users\\Kayre\\OneDrive\\Documentos\\Arduino\\libraries\\Adafruit_TinyUSB_Library\\src",
+        "C:\\Program Files\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino",
+        "C:\\Program Files\\arduino-1.8.19\\hardware\\arduino\\avr\\variants\\standard",
+        "C:\\Program Files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
+        "C:\\Program Files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\SPI\\src",
+        "C:\\Program Files\\arduino-1.8.19\\hardware\\tools\\avr\\avr\\include",
+        "C:\\Users\\Kayre\\OneDrive\\Documentos\\Arduino\\libraries\\Adafruit_MPU6050",
+        "C:\\Users\\Kayre\\OneDrive\\Documentos\\Arduino\\libraries\\Adafruit_Unified_Sensor",
+        "C:\\Users\\Kayre\\OneDrive\\Documentos\\Arduino\\libraries\\Adafruit_BusIO",
+        "C:\\Users\\Kayre\\OneDrive\\Documentos\\Arduino\\libraries\\Adafruit_SSD1306"
+      ],
+      "compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x64",
+      "defines": [
+        "USBCON"
+      ],
+      "compilerArgs": [
+        ""
+      ]
+    }
+  ],
+  "version": 4
+}
