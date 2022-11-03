@@ -18,11 +18,7 @@ public class PlayerController : MonoBehaviour
     
     public string message;
     string catcher;
-    public string[] recived = new string [3];
-    public string[] recivedT = new string [3];
-    
-    private float x, y;
-    
+
     [Header("Movement & Jumping")]
     public float PlayerSpeed;
     public float JumpForce;

@@ -5,7 +5,6 @@
 
 Adafruit_MPU6050 mpu;
 float roll, pitch,yaw;
-float x, y, z;
 
 void setup(void) {
   Serial.begin(115200);
@@ -37,8 +36,6 @@ void loop() {
   roll = 180 *atan(a.acceleration.x/sqrt(a.acceleration.y*a.acceleration.y+a.acceleration.z*a.acceleration.z))/M_PI;
   pitch = 180 *atan(a.acceleration.y/sqrt(a.acceleration.x*a.acceleration.x+a.acceleration.z*a.acceleration.z))/M_PI;
 
-
-
   if(Serial.available() > 0)
   {
     String command = Serial.readStringUntil('\n');
@@ -51,15 +48,6 @@ void loop() {
         Serial.println("A");
       if(pitch > 20)
         Serial.println("W");
-      // Serial.print(roll);
-      // Serial.print(",");
-      // Serial.print(pitch);
-      // Serial.print(",");
-      // Serial.print(a.acceleration.z);
-      // Serial.print("\n");
-      //Serial.write((uint8_t*)&roll,4);
-      //Serial.write((uint8_t*)&pitch,4);
-
     }        
   }    
 }
