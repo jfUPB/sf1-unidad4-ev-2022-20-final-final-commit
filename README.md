@@ -20,7 +20,6 @@ Tienes las siguientes restricciones:
 ![MPU6050 and ESP32](https://content.instructables.com/ORIG/F1U/RBUZ/KFDYWZIZ/F1URBUZKFDYWZIZ.png?auto=webp&frame=1&fit=bounds&md=773d9ab9ee3bf6f0f90e33771377beb5)
 
 
-
 * Entregar: El código fuente de las aplicaciones para el microcontrolador y para Unity en este repositorio y la documentación de cómo integraste la información del sensor para modificar el comportamiento de la aplicación. Esta documentación la debes incluir en el archivo README.md.
 
 ### Referencias
@@ -36,9 +35,10 @@ Tienes las siguientes restricciones:
 ## Review del código (Microcontroller)
 
 
-* Aquí hacemos lo más escencial que es inicializar las librerías y dependencias necesarias para poder hacer la comunicación del programa y el micro-controlador posible. Después procedemos a referenciar y declarar las variables que usaremos en nuestro código.
+* Se hace la carga de las librearias de Adafruit para poder comunicarse con el sensor mpu6050 y se decalaran las variables del sensor y los desplazamientos.
 
-* Después de esto se inicializa la función *Void setup* la cual se encarga de ejecutarse cada vez que inicia el programa, así buscando el puerto serial correspondiente e iniciandolo y buscando la cominicación con el giroscopio.
+* En el void set up se establece la velocidad de la conexion, se corre tambien un chequeo de conexion con el sensor y se establecen los valores y rangos 
+de medicion del sensor
 
 ```cpp
 #include <Adafruit_MPU6050.h>
@@ -73,11 +73,9 @@ void setup(void) {
 
 ```
 
-* Posteriormente está la clase *Void Loop*, la cual está encargada de ejecutarse cada frame para poder 
-tener cierto flujo de datos que nos envían unas ecuaciones hechas para calcular el movimiento de los 
-ejes del acelerómetro y estos se les asignas a unas variables que usaremos más tarde. Lo que ejecuta 
-después de esto nos permite verificar si hay algún puerto serial con datos disponibles, por lo que después 
-revisa si ese dato es igual a *S* debido a que escogimos este mensaje para comunicar el Micro-Controlador con la aplicación *UNITY*.
+* Luego en el void loop se llama los eventos de los cuales se obtendran las lecturas del sensor y luego se usa trigonometria para calcular el movimiento en el eje horizontal y vertical del microcontrolador.
+
+*Tambien se establece la conexion con Unity con el command que en este caso sera com, y que cada ves que se llame, segun la rotacion del sensor mandara la letra respectiva del input.
 
 ```cpp
 void loop() {
@@ -110,9 +108,8 @@ void loop() {
 ## Review del código (UNITY)
 
 
-* Aquí hacemos lo más escencial que es inicializar las librerías y dependencias necesarias para poder hacer la comunicación del programa y el micro-controlador posible. Después procedemos a referenciar y declarar las variables que usaremos en nuestro código.
-
-* Después de esto se inicializa la función *Void setup* la cual se encarga de ejecutarse cada vez que inicia el programa, así buscando el puerto serial correspondiente e iniciandolo y buscando la cominicación con el giroscopio.
+* Aqui en Unity el trabajo de comunicaciones se hace con las variables del header Coms, en este caso el atributo SerialController, un stringComparer, varibles de
+espera en los float time y waitTime; y la varibale de message que sera lo que se lee del micro y un catcher que la va a manejar.
 
 ```cpp
 [Header("Serial Coms")]
@@ -127,7 +124,10 @@ void loop() {
 
 ```
 
-* Después de esto se inicializa la función *Void setup* la cual se encarga de ejecutarse cada vez que inicia el programa, así buscando el puerto serial correspondiente e iniciandolo y buscando la cominicación con el giroscopio.
+* La aplicacion de Unity  realiza la comunicacion llamando a los metodos del serial controller y enviado el 
+llamado con un wait de 60 milisegundos, luego recibira la informacion en el metodo read, de aca se comprueba
+el contenido de message, luego esto se pasa al catcher y se tienen 3 casos stringComparer que acceden al atributo
+velocity del rigidBody que modifican el movimiento.
 
 ```cpp
  //---------------------------------------------------------------------
